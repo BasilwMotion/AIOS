@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/*
+ * AIOS design tokens
+ * Single dark theme for now (Discord-like rail + Notion-like workspace).
+ * A light theme / theme-toggle can be layered on later without touching components,
+ * since every component consumes these semantic tokens instead of raw colors.
+ */
+:root {
+  --background: #0b0c10; /* app canvas */
+  --surface: #14161d; /* cards / panels */
+  --surface-2: #1b1e27; /* hover / elevated */
+  --sidebar: #0e0f14; /* left rail */
+  --border: #262a34;
+  --foreground: #e7e9ee;
+  --muted: #9aa1ad; /* secondary text */
+  --muted-2: #656b78; /* tertiary text */
+
+  --primary: #6366f1; /* indigo */
+  --primary-foreground: #ffffff;
+  --accent: #22d3ee; /* cyan */
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-sidebar: var(--sidebar);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-2: var(--muted-2);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-card: var(--radius);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Slim, unobtrusive scrollbars that match the dark surfaces */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
